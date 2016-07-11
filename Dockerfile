@@ -7,7 +7,7 @@ RUN apt-get update && \
 
 RUN mkdir /src && \
   cd /src && \
-  wget -O terraria.zip "http://192.168.31.138:8000/terraria-server-${TERRARIA_VERSION}.zip" && \
+  wget -O terraria.zip "http://terraria.org/server/terraria-server-${TERRARIA_VERSION}.zip" && \
   unzip terraria.zip 'Dedicated Server/Linux/*' && \
   chmod +x '/src/Dedicated Server/Linux/TerrariaServer.bin.x86_64'
 
