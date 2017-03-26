@@ -1,6 +1,6 @@
 FROM ubuntu
 
-ENV TERRARIA_VERSION=1331
+ENV TERRARIA_VERSION=1333
 
 RUN apt-get update && \
   apt-get install -y wget unzip
