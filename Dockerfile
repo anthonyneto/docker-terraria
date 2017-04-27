@@ -1,15 +1,15 @@
 FROM ubuntu
 
-ENV TERRARIA_VERSION=1352
+ENV TERRARIA_VERSION=1353
 
 RUN apt-get update && \
   apt-get install -y wget unzip
 
-RUN mkdir /src && \
-  cd /src && \
-  wget -O terraria.zip "http://terraria.org/server/terraria-server-${TERRARIA_VERSION}.zip" && \
-  unzip terraria.zip 'Linux/*' && \
-  chmod +x '/src/Linux/TerrariaServer.bin.x86_64'
+WORKDIR /src
+
+RUN wget -O terraria.zip "http://terraria.org/server/terraria-server-${TERRARIA_VERSION}.zip" && \
+  unzip terraria.zip "${TERRARIA_VERSION}/Linux/*" && \
+  chmod +x "${TERRARIA_VERSION}/Linux/TerrariaServer.bin.x86_64"
 
 ADD config.txt /config.txt.default
 ADD run.sh /run.sh
